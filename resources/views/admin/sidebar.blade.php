@@ -37,13 +37,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./admin/menu/add" class="nav-link">
+                            <a href="{{url('./admin/menu/add')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm danh mục</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./admin/menu/list" class="nav-link">
+                            <a href="{{url('./admin/menu/list')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Liệt kê danh mục</p>
                             </a>
