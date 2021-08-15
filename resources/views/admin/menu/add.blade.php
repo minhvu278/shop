@@ -7,7 +7,6 @@
     <form action="" method="post">
         @csrf
         <div class="card-body">
-
             <div class="form-group">
                 <label>Tên danh mục</label>
                 <input type="text" name="name" class="form-control" id="menu" placeholder="Enter name">
@@ -35,7 +34,11 @@
 
             <div class="form-group">
                 <label>Ảnh sản phẩm</label>
-                <input type="file" name="file" class="form-control" id="upload">
+                <input type="file" class="form-control" id="upload">
+                <div id="image_show">
+
+                </div>
+                <input type="hidden" name="file" id="file">
             </div>
 
             <div class="form-group">
