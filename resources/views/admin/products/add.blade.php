@@ -6,60 +6,67 @@
 @section('content')
     <form action="" method="post">
         @csrf
-        <div class="row">
-            <div class="col-sm-6">
-                <!-- text input -->
-                <div class="form-group">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
                     <label>Tên sản phẩm</label>
-                    <input type="text" class="form-control" placeholder="Enter ...">
+                    <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Nhập tên sản phẩm">
+                </div>
+                <div class="col">
+                    <<label>Danh mục</label>
+                    <select class="form-control" name="parent_id" id="">
+                        <option value="0">Danh mục cha</option>
+                        @foreach($menus as $menu)
+                            <option value="{{$menu->id}}">{{$menu->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Danh mục</label>
-                    <input type="text" class="form-control" placeholder="Enter ...">
+            <div class="row pt-3">
+                <div class="col">
+                    <label>Giá gốc</label>
+                    <input type="number" value="{{old('price')}}" class="form-control" name="price">
+                </div>
+                <div class="col">
+                    <label>Giá giảm</label>
+                    <input type="number" value="{{old('price_sale')}}" class="form-control" name="price_sale">
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-6">
-                <label>Custom Select</label>
-                <select class="custom-select">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                </select>
+
+            <div class="form-group">
+                <label>Mô tả</label>
+                <textarea name="description" value="{{old('description')}}" class="form-control"></textarea>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-sm-6">
-                <label>Custom Select</label>
-                <select class="custom-select">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                </select>
+            <div class="form-group">
+                <label>Mô tả chi tiết</label>
+                <textarea name="content" id="content" value="{{old('content')}}" class="form-control"></textarea>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label>Mô tả</label>
-            <textarea name="description" class="form-control"></textarea>
-        </div>
+            <div class="form-group">
+                <label>Ảnh sản phẩm</label>
+                <input type="file" class="form-control" id="upload">
+                <div id="image_show">
+                </div>
+                <input type="hidden" name="thumb" id="thumb">
+            </div>
 
-        <div class="form-group">
-            <label>Mô tả chi tiết</label>
-            <textarea name="content" id="content" class="form-control"></textarea>
+            <div class="form-group">
+                <label>Kích hoạt</label>
+                <div class="form-check">
+                    <input class="form-check-input" value="1" type="radio" id="active" name="active" checked="">
+                    <label class="form-check-label">Có</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="0" type="radio" name="active" id="no_active">
+                    <label class="form-check-label">Không</label>
+                </div>
+            </div>
+
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Thêm danh mục</button>
-
+            <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
 
 
         </div>

@@ -23,8 +23,6 @@ class UploadService
             } catch (\Exception $error) {
                 return false;
             }
-
-
         }
     }
 }
